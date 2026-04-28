@@ -1,0 +1,262 @@
+/* ============================================================
+   app.css — Global styles & Navbar
+   Dipakai oleh: layouts/app.blade.php
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* ── Color Palette ── */
+    /* Layer 1 – Dark navy charcoal (bg)   */
+    /* Layer 2 – Deep ocean blue (surface) */
+    /* Layer 3 – Steel / medium blue (primary) */
+    /* Layer 4 – Light sky blue (accent / secondary) */
+
+    --primary:       #3d85c0;
+    --primary-dark:  #2d6fa8;
+    --secondary:     #b3d8f0;
+    --success:       #10b981;
+    --success-dark:  #059669;
+    --danger:        #ef4444;
+    --danger-dark:   #dc2626;
+    --warning:       #f59e0b;
+    --warning-dark:  #d97706;
+    --bg:            #1a2733;
+    --surface:       #1a4f7c;
+    --surface2:      #153f64;
+    --border:        rgba(61,133,192,0.18);
+    --text:          #e8f4fd;
+    --text-muted:    #7ab3d4;
+    --glass:         rgba(61,133,192,0.08);
+    --glass-border:  rgba(61,133,192,0.20);
+    --radius:        14px;
+    --radius-sm:     8px;
+    --shadow:        0 8px 32px rgba(0,0,0,0.45);
+    --transition:    all 0.25s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    background-image:
+        radial-gradient(ellipse at 15% 60%, rgba(26,79,124,0.40) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 10%, rgba(61,133,192,0.20) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, rgba(26,79,124,0.25) 0%, transparent 60%);
+    background-attachment: fixed;
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+/* ── Navbar ── */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26, 39, 51, 0.90);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0 40px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .brand {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--secondary);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 20px rgba(179,216,240,0.3);
+}
+
+.navbar .brand span {
+    -webkit-text-fill-color: initial;
+    color: white;
+    margin-right: 6px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 7px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--text);
+    background: var(--glass);
+}
+
+.nav-links .nav-cart {
+    color: var(--text);
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+}
+
+.nav-links .nav-cart:hover {
+    background: rgba(61,133,192,0.20);
+    border-color: var(--primary);
+    color: var(--secondary);
+}
+
+.nav-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+.nav-user {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-user::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--success);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--success);
+}
+
+/* ── Logout Button ── */
+.btn-logout {
+    background: linear-gradient(135deg, var(--danger), #f87171);
+    color: white;
+    border: none;
+    padding: 7px 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    transition: var(--transition);
+    letter-spacing: 0.2px;
+}
+
+.btn-logout:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239,68,68,0.4);
+}
+
+/* ── Container ── */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+/* ── Alerts ── */
+.alert {
+    padding: 14px 20px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.alert-success {
+    background: rgba(16,185,129,0.12);
+    color: #34d399;
+    border-color: rgba(16,185,129,0.25);
+}
+
+.alert-success::before { content: '✓'; }
+
+.alert-danger {
+    background: rgba(239,68,68,0.12);
+    color: #f87171;
+    border-color: rgba(239,68,68,0.25);
+}
+
+.alert-danger::before { content: '!'; }
+
+.alert ul {
+    margin: 0;
+    padding-left: 16px;
+}
+
+/* ── Badge ── */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    background: rgba(61,133,192,0.18);
+    color: var(--secondary);
+    border: 1px solid rgba(61,133,192,0.30);
+    margin: 2px 3px 2px 0;
+}
+
+/* ── Page title ── */
+.page-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.5px;
+}
+
+.page-title span {
+    color: var(--secondary);
+}
+
+/* ── Glass card ── */
+.glass-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(12px);
+}

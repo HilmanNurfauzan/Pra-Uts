@@ -1,0 +1,164 @@
+/* ============================================================
+   auth.css — Login & Register pages
+   Dipakai oleh: auth/login.blade.php, auth/register.blade.php
+   ============================================================ */
+
+.auth-wrapper {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+    background: rgba(26,63,100,0.75);
+    border: 1px solid rgba(61,133,192,0.30);
+    border-radius: 20px;
+    padding: 48px 40px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(61,133,192,0.10);
+    animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.auth-logo {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.auth-logo .logo-icon {
+    font-size: 48px;
+    line-height: 1;
+    display: block;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 4px 12px rgba(61,133,192,0.45));
+}
+
+.auth-logo h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+}
+
+.auth-logo p {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+/* ── Form group ── */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #7ab3d4;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(61,133,192,0.08);
+    border: 1px solid rgba(61,133,192,0.18);
+    border-radius: 10px;
+    color: #e8f4fd;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: #4a7a9b;
+}
+
+.form-group input:focus {
+    border-color: rgba(61,133,192,0.7);
+    background: rgba(61,133,192,0.12);
+    box-shadow: 0 0 0 3px rgba(61,133,192,0.18);
+}
+
+/* ── Auth button ── */
+.btn-auth {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, #3d85c0, #2d6fa8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    transition: all 0.25s ease;
+    margin-top: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-auth::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.btn-auth:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(61,133,192,0.50);
+}
+
+.btn-auth:hover::after { opacity: 1; }
+.btn-auth:active { transform: translateY(0); }
+
+/* ── Register variant ── */
+.btn-auth.btn-register {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.btn-auth.btn-register:hover {
+    box-shadow: 0 8px 24px rgba(16,185,129,0.45);
+}
+
+/* ── Auth link ── */
+.auth-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: #64748b;
+}
+
+.auth-footer a {
+    color: #7ab3d4;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.auth-footer a:hover {
+    color: #b3d8f0;
+}
+
+/* ── Divider ── */
+.auth-divider {
+    height: 1px;
+    background: rgba(61,133,192,0.15);
+    margin: 28px 0;
+}
